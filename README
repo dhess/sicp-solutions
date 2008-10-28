@@ -1,0 +1,28 @@
+This package contains the code for my solutions to the exercises in
+the 2nd edition of Abelson and Sussman's _Structure and Interpretation
+of Computer Programs_. Unless otherwise specified, all of the
+solutions were written and tested using Chicken Scheme 2.6 or later on
+a MacBook Pro running Mac OS X 10.5. The solutions are licensed under
+the GNU GPL version 3.
+
+The code is organized by chapter and exercise number. For example, the
+code for the solution to exercise 2.42 in chapter 2 is contained in
+the file named ex2.42.scm in the chap2/ subdirectory.
+
+The Scheme files contain only the code needed to solve the problem
+posed by the exercise. For detailed explanations of the code in each
+solution, see the solution's corresponding page on my wiki. An index
+of all available solutions can be found on the SICP solutions category
+page:
+
+http://wiki.drewhess.com/wiki/Category:SICP_solutions
+
+Please also see the category page for information on running the code
+contained in this package on various Scheme implementations.
+
+Some of the exercises in SICP pose problems whose solutions don't
+require any code at all. Such exercises only have a wiki page, and no
+corresponding Scheme file.
+
+Note: This package is a work-in-progress -- I haven't finished reading
+the text yet. I'll add new solutions as I get around to them.
