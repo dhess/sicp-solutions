@@ -35,7 +35,11 @@
   (* (branch-length branch) (branch-weight branch)))
 
 (define (balanced? mobile)
-  (= (torque (left-branch mobile)) (torque (right-branch mobile))))
+  (let ((left (left-branch mobile))
+        (right (right-branch mobile)))
+    (and (= (torque left) (torque right))
+         (if (mobile? (branch-structure left)) (balanced? left) #t)
+         (if (mobile? (branch-structure right)) (balanced? right) #t))))
 
 ;; Part D
 
@@ -52,4 +56,3 @@
 (define (branch-length branch) (car branch))
 
 (define (branch-structure branch) (cdr branch))
-
