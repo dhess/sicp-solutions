@@ -1,0 +1,16 @@
+The solutions transform the tree to a sorted list, perform the
+algorithms developed in the text and in exercise 2.62.
+
+I don't think it's possible to implement union-set or intersection-set
+such that they operate directly on the tree representation and still
+perform in O(n) time. (Possibly with continuations?)
+
+tests:
+
+(define s1 (list->tree '(1 2 3 5 6 8 10 11)))
+
+(define s2 (list->tree '(2 4 6 8 11 13)))
+
+(tree->list (union-set s1 s2))
+
+(tree->list (intersection-set s1 s2))

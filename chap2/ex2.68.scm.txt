@@ -1,0 +1,41 @@
+My solution traverses the tree in frequency order (left branch, then
+right) looking for leaves, then conses the appropriate number onto the
+list as it backtracks to the root node (0 for left branch, 1 for right
+branch). This solution is more efficient than a solution which
+searches the list of symbols that live beneath each node, since it
+doesn't waste time searching a list at each node (at best O(log n) per
+node, if we bother to sort the symbol lists).
+
+My solution should be fairly optimal, too, since the most frequent
+symbols should be found in the first few leaves of the tree (least
+frequent symbols have to traverse nearly the entire tree). Even in the
+case where the symbol to be encoded is the least frequent symbol, my
+solution avoids the per-node search overhead, so it might be faster.
+
+Test cases and output:
+
+(encode-symbol 'A sample-tree)
+(0)
+
+(encode-symbol 'B sample-tree)
+(1 0)
+
+(encode-symbol 'C sample-tree)
+(1 1 1)
+
+(encode-symbol 'D sample-tree)
+(1 1 0)
+
+(encode-symbol 'E sample-tree)
+Error: bad symbol -- ENCODE-SYMBOL: E
+
+(encode '(A D A B B C A) sample-tree)
+(0 1 1 0 0 1 0 1 0 1 1 1 0)
+
+(equal? (encode '(A D A B B C A) sample-tree)
+        sample-message)
+#t
+
+
+
+
