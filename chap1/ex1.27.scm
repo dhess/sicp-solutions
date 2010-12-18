@@ -6,7 +6,7 @@
 
 (define (complete-fermat-test-helper n a)
   (cond ((= a 0) #t)
-        ((fermat-test n a) (fermat-test n (- a 1)))
+        ((fermat-test n a) (complete-fermat-test-helper n (- a 1)))
         (else #f)))
 
 (define (fermat-test n a)
