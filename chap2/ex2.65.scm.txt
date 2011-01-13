@@ -1,9 +1,13 @@
 The solutions transform the tree to a sorted list, perform the
-algorithms developed in the text and in exercise 2.62.
+algorithms developed in the text and in exercise 2.62 on the sorted
+list, and then transform the sorted list back into a tree.
 
-I don't think it's possible to implement union-set or intersection-set
-such that they operate directly on the tree representation and still
-perform in O(n) time. (Possibly with continuations?)
+Each procedure used by union-set or intersection-set (tree->list,
+either intersection-set-list or union-set-list, and the conversion
+back to a tree via list->tree) is O(n). Each procedure is called once
+(in the case of intersection-set-list, union-set-list, and list->tree)
+or twice (tree->list). The union-set and intersection-set
+implementations, then, are also O(n).
 
 tests:
 
