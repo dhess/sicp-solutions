@@ -15,6 +15,21 @@
 
 (define (make-record key datum) (cons key datum))
 
+(define (lookup given-key set-of-records)
+  (if (null? set-of-records)
+      false
+      (let ((record (entry set-of-records)))
+        (let ((k (key record)))
+          (cond ((equal? given-key k) record)
+                ((< given-key k)
+                 (lookup given-key (left-branch set-of-records)))
+                (else
+                 (lookup given-key (right-branch set-of-records))))))))
+
+;;; The following procedures are given only for creating databases and
+;;; testing the solution given above. They're not part of the
+;;; solution, proper.
+
 (define (list->tree elements)
   (car (partial-tree elements (length elements))))
 
@@ -33,18 +48,6 @@
                     (remaining-elts (cdr right-result)))
                 (cons (make-tree this-entry left-tree right-tree)
                       remaining-elts))))))))
-
-(define (lookup given-key set-of-records)
-  (if (null? set-of-records)
-      false
-      (let ((record (entry set-of-records)))
-        (let ((k (key record)))
-          (cond ((equal? given-key k) record)
-                ((< given-key k)
-                 (lookup given-key (left-branch set-of-records)))
-                (else
-                 (lookup given-key (right-branch set-of-records))))))))
-
 
 (define database
   (list->tree (list (make-record 1 'a)
