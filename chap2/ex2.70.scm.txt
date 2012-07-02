@@ -1,0 +1,10 @@
+Assuming we represent the message as follows:
+
+'(GET A JOB SHA NA NA NA NA NA NA NA NA GET A JOB SHA NA NA NA NA NA NA NA NA WAH YIP YIP YIP YIP YIP YIP YIP YIP YIP SHA BOOM)
+
+the message requires 87 bits to encode using the given Huffman tree.
+
+The same message using a fixed-length code for the eight-symbol
+alphabet would require 3 bits per symbol (2^3 = 8) times 91 symbols
+(not including spaces between symbols or carriage returns as shown in
+the text!) == 273 bits.
