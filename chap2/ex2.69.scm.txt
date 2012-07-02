@@ -1,0 +1,29 @@
+The pattern that successive-merge needs to generate should look like
+the pattern given in the text for the definition of sample-tree:
+
+(define sample-tree 
+  (make-code-tree (make-leaf 'A 4) 
+                  (make-code-tree 
+                   (make-leaf 'B 2) 
+                   (make-code-tree (make-leaf 'D 1)
+                                   (make-leaf 'C 1))))) 
+
+So successive-merge will obviously be a recursive definition that
+applies make-code-tree while traversing the elements of the leaf set.
+
+Note that make-leaf-set takes a list ordered from highest frequency to
+lowest and generates a set ordered from lowest to highest:
+
+(make-leaf-set '((A 4) (B 2) (D 1) (C 1)))
+> ((leaf C 1) (leaf D 1) (leaf B 2) (leaf A 4))
+
+Because the highest-frequency elements need to be at the front of the
+list that represents the Huffman tree, successive-merge must either
+reverse the list representation of the leaf set, or carry the partial
+result from iteration to iteration. I use the latter approach in my
+solution.
+
+Test case:
+
+(equal? sample-tree (generate-huffman-tree '((A 4) (B 2) (D 1) (C 1))))
+> #t
