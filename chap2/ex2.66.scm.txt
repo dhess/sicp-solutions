@@ -1,5 +1,0 @@
-Represent records as (number . symbol) pairs.
-
-The datum procedure accesses the datum associated with each key.
-
-Include list->tree to make creating databases easier.
